@@ -1,11 +1,11 @@
-import User from "../entities/user.ts";
+import User from "../entites/user.ts";
 
 export default class UserRepository {
     add(user: User): void {
         throw new Error("Method not implemented yet");
     }
 
-    getAllUsers(): User[] {
+    getAllUsers(): string[] {
         throw new Error("Method not implemented yet");
     }
 

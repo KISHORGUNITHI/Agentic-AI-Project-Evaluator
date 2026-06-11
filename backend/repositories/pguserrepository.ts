@@ -1,5 +1,5 @@
 import Connection_pool from "../db/connection_pool.ts";
-import User from "../entities/user.ts";
+import User from "../entites/user.ts";
 import UserRepository from "./userrepositories.ts";
 
 const db = Connection_pool();
@@ -16,7 +16,7 @@ class PgUserRepository extends UserRepository {
 
     getAllUsers(): string[] {
         const query = `SELECT name FROM users`;
-        const result = db.query(query);
+        const result :any= db.query(query);
 
         const users: string[] = [];
 
@@ -29,7 +29,7 @@ class PgUserRepository extends UserRepository {
 
     getUserByEmail(email: string): User {
         const query = `SELECT * FROM users WHERE email='${email}'`;
-        const result = db.query(query);
+        const result:any = db.query(query);
 
         const row = result[0];
 
