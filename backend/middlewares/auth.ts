@@ -1,8 +1,9 @@
-import checkvaildtoken from "../utlites/auth.ts"
+
+import {checkValidToken,getPayload} from "../utlites/auth.ts"
 import dotenv from "dotenv";
 dotenv.config();
 
-function requireLogin(req, res, next) {
+function requireLogin(req:any, res:any, next:Function) {
     const token = req.cookies?.refresh_token;
 
     if (!token) {
@@ -14,7 +15,7 @@ function requireLogin(req, res, next) {
     next();
 }
 
-function requireUser(req, res, next) {
+function requireUser(req:any, res:any, next:Function) {
     const token = req.cookies?.refresh_token;
 
     if (!token) {
@@ -38,7 +39,7 @@ function requireUser(req, res, next) {
     next();
 }
 
-function requireAdmin(req, res, next) {
+function requireAdmin(req:any, res:any, next:Function) {
     const token = req.cookies?.refresh_token;
 
     if (!token) {

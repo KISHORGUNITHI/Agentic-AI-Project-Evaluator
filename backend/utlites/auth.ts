@@ -65,9 +65,15 @@ function checkValidToken(token: string): boolean {
     return false;
 }
 
+function getPayload(token: string){
+    const payload :any= jwt.verify(token, process.env.JWT_SECRET!);
+    return payload;
+}
+
 export {
     getAccessToken,
     createrefreshToken,
     checkValidToken,
-    createAccessTokenFromRefresh
+    createAccessTokenFromRefresh,
+    getPayload
 }
